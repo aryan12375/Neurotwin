@@ -1,6 +1,6 @@
 # NeuroTwin: Neural Digital Twin Dashboard
 
-NeuroTwin is a high-performance neural digital twin platform that utilizes LSTM-based Variational Autoencoders (VAEs) to create interactive virtual replicas of complex, time-series-driven systems.
+NeuroTwin is  a high-performance neural digital twin platform that utilizes LSTM-based Variational Autoencoders (VAEs) to create interactive virtual replicas of complex, time-series-driven systems.
 
 ## 🚀 Key Features
 
