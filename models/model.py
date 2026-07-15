@@ -16,6 +16,8 @@ class NeuroTwinLatent(nn.Module):
         self.fc_out = nn.Linear(hidden_size, 1)
 
     def reparameterize(self, mu, logvar):
+        if not self.training:
+            return mu
         std = torch.exp(0.5 * logvar)
         eps = torch.randn_like(std)
         return mu + eps * std

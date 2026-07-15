@@ -21,7 +21,7 @@ def what_if_simulation(model, seq, factor=1.2, steps=10):
     noise = torch.randn_like(seq) * 0.02
     trend = torch.linspace(0, 0.05, steps=seq.shape[0]).unsqueeze(1)
 
-    modified_seq = seq.clone() + noise + trend
+    modified_seq = seq.clone() * factor + noise + trend
     modified_seq = torch.clamp(modified_seq, 0, 1)
 
     orig = predict_future(model, seq, steps)

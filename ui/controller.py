@@ -1,4 +1,5 @@
 import torch
+from pathlib import Path
 
 from utils.data_loader import load_data, create_sequences
 from config import SEQ_LENGTH
@@ -6,6 +7,9 @@ from models.model import NeuroTwinLatent
 from inference.predict import evaluate
 from inference.what_if import predict_future, what_if_simulation
 from utils.anomaly import detect_anomalies
+
+
+MODEL_PATH = Path(__file__).resolve().parents[1] / "models" / "neurotwin.pth"
 
 
 class Controller:
@@ -23,7 +27,7 @@ class Controller:
         # ===== LOAD TRAINED MODEL =====
         self.model = NeuroTwinLatent()
         self.model.load_state_dict(
-            torch.load("models/neurotwin.pth", map_location="cpu")
+            torch.load(MODEL_PATH, map_location="cpu", weights_only=True)
         )
         self.model.eval()
 
